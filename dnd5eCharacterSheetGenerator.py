@@ -46,27 +46,27 @@ from background.urchin import urchin
 
 
 def race():
-	racesSelection = {"dwarf":dwarf,"elf":elf, "halfling":halfling, "human":human,"dragonborn":dragonborn,"gnome":gnome,"halfelf":halfElf,"halforc":halfOrc,"tiefling":tiefling}
-	ranRace = random.choice(racesSelection.values())
-	ranRace()
-	print settings.race 
-	print settings.alignment
+    racesSelection = {"dwarf":dwarf,"elf":elf, "halfling":halfling, "human":human,"dragonborn":dragonborn,"gnome":gnome,"halfelf":halfElf,"halforc":halfOrc,"tiefling":tiefling}
+    ranRace = random.choice(racesSelection.values())
+    ranRace()
+    print(settings.race)
+    print(settings.alignment)
 
 
 def classes():
-	classSelection = {"barbarian":barbarian}#,"bard":bard, "cleric":cleric, "druid":druid,"fighter":fighter,"monk":monk,"paladin":paladin,"ranger":ranger,"rogue":rogue,"sorcerer":sorcerer,"warlock":warlock,"wizard":wizard}
-	ranClass = random.choice(classSelection.values())
-	ranClass()
-	print settings.classes
+    classSelection = {"barbarian":barbarian}#,"bard":bard, "cleric":cleric, "druid":druid,"fighter":fighter,"monk":monk,"paladin":paladin,"ranger":ranger,"rogue":rogue,"sorcerer":sorcerer,"warlock":warlock,"wizard":wizard}
+    ranClass = random.choice(classSelection.values())
+    ranClass()
+    print(settings.classes)
 
 
 
 def background():
-	backgroundSelection = {"acolyte":acolyte,"charlatan":charlatan, "criminal":criminal, "entertainer":entertainer,"folkhero":folkHero,"guildartisan":guildArtisan,"hermit":hermit,"noble":noble,"outlander":outlander,"sage":sage,"sailor":sailor,"soldier":soldier,"urchin":urchin}
-	ranBackground = random.choice(backgroundSelection.values())
-	ranBackground()
-	print settings.background
-	print settings.wealth
+    backgroundSelection = {"acolyte":acolyte,"charlatan":charlatan, "criminal":criminal, "entertainer":entertainer,"folkhero":folkHero,"guildartisan":guildArtisan,"hermit":hermit,"noble":noble,"outlander":outlander,"sage":sage,"sailor":sailor,"soldier":soldier,"urchin":urchin}
+    ranBackground = random.choice(backgroundSelection.values())
+    ranBackground()
+    print(settings.background)
+    print(settings.wealth)
 
 
 
