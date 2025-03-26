@@ -8,11 +8,19 @@ FORKED from Gabe Maurer
   - pip install pyfiglet
 
 ## Functuality
-  - Will fill out the 5th edition (2024) character sheet with generated stats
+  - none yet tbh
+
+
+## character sheet.json
+  saving throw and skill scores arent listed as theyll be calculated using the proficiencies
+  the saving throw and skill proficiencies are listed with integers instead of booleans to accomedate for experties 0=none, 1=proficiency, 2=expertise
+
 
 
 ## TO-DO
   - **Make terminal interface**
+  
+  - Will fill out the 5th edition (2024) character sheet with generated stats
   
   - Change functuality to export as JSON
   

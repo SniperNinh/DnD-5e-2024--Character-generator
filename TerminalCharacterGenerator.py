@@ -60,6 +60,57 @@ def main():
         
 
 
+#character creation order:
+"""
+*-class
+*-multiclasses
+origin:
+    *-species
+    *-background
+    *-feats
+    *-languages
+*-profeciencies:
+    *-skill profeciencies
+    *-tool profeciencies
+    --saving throw profeciencies
+    *-experties?
+--profeciency bonus
+*-ability scores
+details:
+    --class features
+    x-saving throws
+    x-skills
+    --passive perception
+    --hit points
+    --hit die
+    --ac
+    --speed
+    --initiative
+    *-equipment:
+    *-spells
+    --spell slots
+    --attacks
+    **description:
+        *-alignment
+        gender?
+        bonds?
+        etc
+--spell attack bonus
+--spell save dc
+"""
+
+#things not in creation:
+"""
+
+
+equip...:
+    attuned items
+    
+
+"""
+
+
+
 
 
 
