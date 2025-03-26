@@ -7,14 +7,14 @@ def randomAbilityScores():
     abiltiyScoreTotal = 0
     #creates 4 ability scores
 
-    for x in xrange(0,6):
+    for x in range(0,6):
         randomDice = []
         abiltiyScoreTotal = 0
-        for y in xrange(0,4):
+        for y in range(0,4):
             randomDice.append(random.randint(1,6))
             
             
-        for z in xrange(0,3):
+        for z in range(0,3):
             abiltiyScoreTotal += max(randomDice)
             del randomDice[randomDice.index(max(randomDice))]
 

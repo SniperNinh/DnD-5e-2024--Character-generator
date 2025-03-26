@@ -30,7 +30,7 @@ def barbarian():
             skillPro = random.choice(settings.skills.keys())
 
     settings.barbarianLevel = 20
-    for x in xrange(0,settings.barbarianLevel+1):
+    for x in range(0,settings.barbarianLevel+1):
         if x == 2:
             settings.featuresAndTraits["Reckless Attack"] = "You can make your first attack reckless and gain advantage melee attacks using strength, however attack rolls against you have advantage as well."
             settings.featuresAndTraits["Danger Sense"] = "Advantage on Dexterity Saving Throws against effects you can see."
