@@ -34,7 +34,7 @@ from background.soldier import soldier
 from background.urchin import urchin
 
 
-commands = {"help" : dnd_help}
+commands = {"help" : dnd_help, "random" : create_random}
 
 
 def main():
@@ -49,10 +49,15 @@ def main():
         
         called = input()
         
-        if called in commands:
+        
+        if called == '':
+            continue
+        elif called in commands:
             commands[called]()
         else:
             print(f'\nthe command {called} does not exist\ntype "help" for a full list of commands\n')
+        
+        
 
 
 

@@ -57,11 +57,13 @@ def background():
     print(settings.wealth)
 
 
+def main():
+    
+    settings.init()
+    randomAbilityScores()
+    race()
+    background()
+    classes()
 
-
-settings.init()
-randomAbilityScores()
-race()
-background()
-classes()
-
+if __name__ == '__main__':
+    main()
