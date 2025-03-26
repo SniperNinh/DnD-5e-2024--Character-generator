@@ -1,6 +1,8 @@
 #prompts through the terminal to make non-random character
 
 import pyfiglet
+import json
+import os
 import random
 import math
 import settings
@@ -47,18 +49,63 @@ def main():
     
     while running:
         
-        called = input()
+        called = input(":")
         
         
         if called == '':
             continue
+        elif called == "start":
+            character_creator()
         elif called in commands:
             commands[called]()
         else:
             print(f'\nthe command {called} does not exist\ntype "help" for a full list of commands\n')
         
-        
+    
 
+
+def character_creator(checkpoint = "start"):
+    creating = True
+    while creating:
+        if checkpoint == "start":
+            
+            with open("data/defaults/character_sheet.json", "r") as template:
+                character_sheet = json.load(template)
+                template.close()
+            
+            checkpoint = "picking_class"
+        
+        if checkpoint == "picking_class":
+            print("\nchoose a starting class from the following: ")
+            print([json.load(open(class_file, "r"))["class_name"] for class_file in os.scandir("data/classes")]) #yeah idk mate, open each files in the classes folder and prints the "character_name" value
+            picked_class = input("\n:")
+            if picked_class in [json.load(open(class_file, "r"))["class_name"] for class_file in os.scandir("data/classes")]:
+                character_sheet["class"] = picked_class
+                
+                checkpoint = "picking_race"
+            
+            else:
+                print(f"\nthere is no {picked_class} class, you might have misstyped\n")
+                continue
+        
+        if checkpoint == "picking_race":
+            print("\nchoose a race from the following: ")
+            print([json.load(open(race_file, "r"))["race_name"] for race_file in os.scandir("data/races")]) #yeah idk mate, open each files in the classes folder and prints the "character_name" value
+            picked_race = input("\n:")
+            if picked_race in [json.load(open(race_file, "r"))["race_name"] for race_file in os.scandir("data/races")]:
+                character_sheet["race"] = picked_race
+                
+                checkpoint = "picking_subrace"
+            
+            else:
+                print(f"\nthere is no {picked_race} race, you might have misstyped\n")
+                continue
+        
+        if checkpoint == "picking_subrace":
+            print("\n\n\n", character_sheet)
+            creating = False
+        
+        
 
 #character creation order:
 """
