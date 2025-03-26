@@ -1,10 +1,26 @@
 # DnD-5e-Character-generator
 Generates a full character sheet and back story
 
-  -Will fill out the 5th edition character sheet with generated stats
+
+## Modules:
+  - Import math
+  - Import random
+
+## Functuality
+  - Will fill out the 5th edition (2024) character sheet with generated stats
+
+
+## TO-DO
+  - Make terminal interface
   
-  -Several random item, trinket, weapons, armor, back story, etc generators planned
+  - Change functuality to export as JSON
   
-  -Planning to all user to generate characters past first level
+  - Make non-random compatibility
   
-  -More when I think of it
+  - change from 2014 to 2024 5e *both?*
+  
+  - Add leveling functuality
+  
+  - More item, class, race, spell, etc data.
+  
+  - More when I think of it
