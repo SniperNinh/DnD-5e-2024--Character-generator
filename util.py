@@ -1,5 +1,5 @@
 #holds all the commands accesable by the terminal
-import RandomCharacterGenerator
+import randomCharacterGenerator
 
 def dnd_help():
     instructions = {"help" : "returns this list", "random" : "creates a random character sheet"}
@@ -11,28 +11,16 @@ def dnd_help():
     print('+------------+--------------------------------------------------------------------+\n')
 
 
-def choose_race():
-    pass
+def format_background_data(background_data : dict):
+    string = ''
+    for entry in background_data.keys():
+        if entry == "background_equipment":
+            string += "choose between A or B:"
+            string += f"A: {entry} : {background_data[entry]}"
+        elif entry == "wealth":
+            string += f"B: {entry} : {background_data[entry]}"
+        else:
+            string += f"{entry} : {background_data[entry]}"
+    return string
 
 
-def choose_class():
-    pass
-
-
-def choose_background():
-    pass
-
-
-def choose_stats(): #ability_scores, level, 
-    pass
-
-
-def choose_level():
-    pass
-
-
-
-
-
-def create_random():
-    RandomCharacterGenerator.main()
