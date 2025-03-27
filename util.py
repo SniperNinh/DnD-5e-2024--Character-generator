@@ -12,15 +12,15 @@ def dnd_help():
 
 
 def format_background_data(background_data : dict):
-    string = ''
+    string = '\n'
     for entry in background_data.keys():
         if entry == "background_equipment":
-            string += "choose between A or B:"
-            string += f"A: {entry} : {background_data[entry]}"
+            string += "choose between A or B:\n"
+            string += f"A: {entry} : {background_data[entry]}\n"
         elif entry == "wealth":
-            string += f"B: {entry} : {background_data[entry]}"
+            string += f"B: {entry} : {background_data[entry]}\n"
         else:
-            string += f"{entry} : {background_data[entry]}"
+            string += f"{entry} : {background_data[entry]}\n"
     return string
 
 

@@ -107,6 +107,7 @@ def character_creator(checkpoint = "start"):
                 print(f"\nthere is no {picked_class} class, you might have misstyped\n")
                 continue
         
+        
         if checkpoint == "picking_race":
             print("\nchoose a race from the following: ")
             print(list(races.keys()))
@@ -147,6 +148,8 @@ def character_creator(checkpoint = "start"):
                     
                     #TODO pick background abilities
                     
+                    print("")
+                    
                     if background_data["background_feat"] not in character_sheet["feats"]:
                         character_sheet["feats"].append(background_data["background_feat"])
                     else:
@@ -162,14 +165,14 @@ def character_creator(checkpoint = "start"):
                     if background_data["background_skill_proficiencies"][1] not in character_sheet["skill_proficiencies"]:
                         character_sheet["skill_proficiencies"].append(background_data["background_feat"][1])
                     else:
-                        print("background skill proficiency on character") #TODO failsafe so you can go back and pick a new skill prof if possible
+                        print("background skill proficiency already on character") #TODO failsafe so you can go back and pick a new skill prof if possible
                     
                     
                     
                     if background_data["background_tool_proficiencies"][0] not in character_sheet["tool_proficiencies"]:
                         character_sheet["tool_proficiencies"].append(background_data["background_tool_proficiencies"][0])
                     else:
-                        print("background tool proficiency on character") #TODO failsafe so you can go back and pick a new tool prof if possible
+                        print("background tool proficiency already on character") #TODO failsafe so you can go back and pick a new tool prof if possible
                     
                     
                     picked_background_equipment = False
@@ -179,6 +182,9 @@ def character_creator(checkpoint = "start"):
                             picked_background_equipment = True
                             
                             for background_equipment in list(background_data["background_equipment"].keys()):
+                                if background_equipment in list(background_data["wealth"].keys()):
+                                    character_sheet["wealth"][background_equipment] += background_data["wealth"][background_equipment]
+                                    
                                 if background_equipment not in list(character_sheet["equipment"].keys()):
                                     character_sheet["equipment"][background_equipment] = background_data["background_equipment"][background_equipment]
                                 else:
@@ -201,11 +207,53 @@ def character_creator(checkpoint = "start"):
                 
                 
                 
-                checkpoint = "done"
+                checkpoint = "picking_ability_scores"
             
             else:
                 print(f"\nthere is no {picked_background} background, you might have misstyped\n")
                 continue
+        
+        
+        if checkpoint == "picking_ability_scores":
+            
+            print('''\npick method for rolling ability scores: 
+m = manually enter rolls,
+r = roll; 4d6 remove one, for each ability,
+d20 = roll; 1d20, for each ability
+pb = point buy''')
+            
+            
+            ability_roll_method = input("\n: ")
+            
+            
+            
+            
+            if ability_roll_method in ["m", "M"]:
+                for ability in character_sheet["ability_scores"]:
+                    picked_ability_stat = False
+                    while picked_ability_stat == False:
+                        choice = input(f"{ability} : ")
+                        if -1 < choice < 21:
+                            character_sheet["ability_scores"][ability] += choice
+            
+            
+            elif ability_roll_method in ["r", "R"]:
+                pass
+            
+            elif ability_roll_method in ["d20", "D20"]:
+                pass
+            
+            elif ability_roll_method in ["pb", "Pb", "pB", "PB"]:
+                pass
+            
+            print(f"\nyou have 3 ability points from your background to split between the following abilities: {background_data['background_abilities'][0]}, {background_data['background_abilities'][1]}, {background_data['background_abilities'][2]}")
+            character_sheet["ability_scores"][input("point 1: ")] += 1
+            character_sheet["ability_scores"][input("point 2: ")] += 1
+            character_sheet["ability_scores"][input("point 3: ")] += 1
+            
+            print("")
+            checkpoint = "done"
+            
         
         
         if checkpoint == "done":
